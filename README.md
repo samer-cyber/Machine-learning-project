@@ -1,5 +1,18 @@
 # Hand Gesture Recognition for Robot Control
 
-The objective is to build a classification model that identifies real-time human hand gestures (e.g., stop, point, thumbs up) to act as simulated command inputs.
+This project recognizes hand gestures from a webcam and uses them as simple
+robot commands. It uses Google's MediaPipe library to get the 21 hand landmark
+points, and the plan is to train a classical machine learning model (Random
+Forest or SVM) on those points to classify the gesture.
 
-To keep the scope realistic and appropriate, I plan to handle the computer vision step by using a pre-trained library (like Google's MediaPipe) strictly to extract 3D spatial hand landmarks. The core machine learning component of the project will focus entirely on taking those extracted coordinate datasets and training a classical algorithm—such as a Random Forest or Support Vector Machine (SVM)—to classify the gesture states.
+Week 1 just sets up MediaPipe and shows the detected hand landmarks. The next
+weeks add the dataset and the machine learning.
+
+## How to run
+
+Install the libraries:
+
+    pip install mediapipe opencv-python matplotlib
+
+Open `gesture_recognition.ipynb` and run the cells. Run `run_hand_tracking()` to
+try it with your own webcam (press q to quit).
