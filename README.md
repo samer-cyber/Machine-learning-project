@@ -7,18 +7,24 @@ SVM) on those points to classify the gesture.
 
 The gestures are: open_palm, fist, thumbs_up, point and peace.
 
-`collect_data()` lets you record your own gestures from the
-webcam into gestures.csv.
+Week 3 adds the machine learning. The notebook normalizes the landmarks, trains
+a Random Forest, and checks it with a confusion matrix and cross-validation.
 
 ## Files
 
-- gesture_recognition.ipynb - the code so far (landmarks + dataset)
-- gestures.csv - the data (21 landmark coordinates + gesture label)
+- gesture_recognition.ipynb - all the code (landmarks, dataset, training)
+- gestures.csv - the dataset you record with collect_data()
 
 ## How to run
 
 Install the libraries:
 
-    pip install mediapipe opencv-python pandas matplotlib
+    pip install mediapipe opencv-python pandas scikit-learn matplotlib seaborn joblib
 
-Open the notebook and run the cells. Run `collect_data()` to record your own data.
+First record some gestures with `collect_data()` (it saves them to gestures.csv),
+then run the cells from top to bottom.
+
+## Results
+
+The Random Forest gets about 97% accuracy (5-fold cross-validation). Most of the
+mistakes are between fist and thumbs_up, which only differ by the thumb.
